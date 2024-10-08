@@ -1,0 +1,110 @@
+html{
+    margin: 0;
+}
+
+body {
+    background-color: #62319b;
+    font-family: Arial, sans-serif;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10rem 0;
+}
+
+h1{
+    color: #ded0ee;
+    text-shadow: 0rem -1.3rem 0rem rgb(124, 63, 173), 0rem 1.3rem 0rem rgb(124, 63, 173);
+}
+
+
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+    border-radius: 1rem;
+    box-shadow: .2rem .2rem 0rem #9e7ac7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.cell.x::before {
+    content: 'X';
+    color: rgb(143, 14, 14);
+    text-shadow: 0.5rem .5rem .6rem rgba(27, 23, 37);
+}
+
+.cell.circle::before {
+    content: 'O';
+    color: rgb(2, 2, 128);
+    text-shadow: 0.5rem .5rem .6rem rgba(27, 23, 37);
+}
+
+.message {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+.message.show {
+    display: flex;
+    padding-top: 2rem;
+}
+
+button {
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 2rem;
+    box-shadow: 0.5rem .5rem .6rem rgba(27, 23, 37);
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+    font-weight: normal;
+}
+
+.winning-cell {
+    animation: winning-line 1s ease-in-out infinite alternate;
+}
+
+@keyframes winning-line {
+    from {
+        background-color: rgba(209, 49, 174, 0.973);
+    }
+    to {
+        background-color: rgba(0, 128, 0, 0.568);
+    }
+}
+
+footer{
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
